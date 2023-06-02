@@ -1,4 +1,4 @@
-const API_KEY = "03a9f979cc3a454992ada10323f27024";
+const API_KEY = "20fa1814892340149d3a3d50a3e1f739";
 
 const URL = "https://newsapi.org/v2/everything?q=";
 
@@ -10,9 +10,14 @@ function focusable() {
 async function fetchNews(query) {
   console.log("Fetching news");
 
-  const response = await fetch(`${URL}${query}&apikey=${API_KEY}`);
+  const response = await fetch(
+    `${URL}${query}&from=2023-05-30&apikey=${API_KEY}`
+  );
+
+  // console.log(response);
 
   if (!response.ok) {
+    alert(`Error: ${response.status} ${response.statusText}`);
     throw new Error(`Error: ${response.status} ${response.statusText}`);
   }
 
@@ -96,8 +101,8 @@ document.querySelector(".logo").addEventListener("click", () => {
 const searchText = document.querySelector("#search-bar");
 const searchIcon = document.querySelector(".search-icon");
 
-function searchNews() {
-  const query = searchText.value;
+function searchNews(query) {
+  //  query = searchText.value;
   // console.log(query);
 
   if (!query) return;
@@ -111,4 +116,15 @@ function searchNews() {
   selectedNav = null;
 }
 
-searchIcon.addEventListener("click", searchNews);
+searchIcon.addEventListener("click", () => {
+  document.querySelector("#search-bar").focus();
+
+  searchNews(searchText.value);
+});
+
+document.querySelector(".nav-search-bar").addEventListener("keypress", (e) => {
+  if (e.key == "Enter") {
+    // fetchNews(e.target.value);
+    searchNews(e.target.value);
+  }
+});

@@ -21,21 +21,21 @@
   <body>
     <header>
       <div class="container header-container">
-       <div class="logo">
-        <img src="./img/news.png" alt="">
-        <!-- <h1 class="">NEWS24</h1> -->
-       </div>
-        <div class="nav-search-bar">
+        <div class="logo">
+          <img src="./img/news.png" alt="" />
+          <!-- <h1 class="">NEWS24</h1> -->
+        </div>
+        <form class="nav-search-bar">
           <input
             type="text"
             name=""
             id="search-bar"
             placeholder="e.g. science"
           />
-          <div class="search-icon" onclick="focusable()">
+          <div class="search-icon">
             <i class="fa-solid fa-magnifying-glass"></i>
           </div>
-        </div>
+        </form>
         <nav>
           <ul class="nav-items">
             <li class="nav-links"><a href="#" id="cricket">Cricket</a></li>
@@ -49,32 +49,30 @@
     </header>
 
     <section id="news-section" class="container">
-
-      <div class="cards-container container" id="cards-containers">
-
-      </div>
-
-    
+      <div class="cards-container container" id="cards-containers"></div>
     </section>
 
     <template id="template-news-card">
       <div class="news-card">
         <div class="card-header">
-          <img src="https://fakeimg.pl/400x200" alt="" srcset="" id="news-img"/>
+          <img
+            src="https://fakeimg.pl/400x200"
+            alt=""
+            srcset=""
+            id="news-img"
+            loading="eager"
+          />
         </div>
         <div class="card-content">
           <h3 id="news-title">This is title</h3>
           <h6 id="news-source">End Gadget 31/05/2023</h6>
           <p id="news-desc">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea in
-            harum doloribus eaque nam, id hic? Aut ea laudantium quae?
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea in harum
+            doloribus eaque nam, id hic? Aut ea laudantium quae?
           </p>
         </div>
       </div>
     </template>
-
     <script src="./script.js"></script>
-      
-    </script>
   </body>
 </html>
